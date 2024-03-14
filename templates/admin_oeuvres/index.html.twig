@@ -1,0 +1,53 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello AdminOeuvresController!{% endblock %}
+
+{% block body %}
+{% for oeuvre in oeuvres %}
+						<tr>
+							<td>{{ oeuvre.id }}</td>
+							<td>{{ oeuvre.name }}</td>
+							{# <td>{{ oeuvre.prix }}</td> #}
+							<td>
+								{% if oeuvre.image %}
+									{# {{ oeuvre.image }} #}
+									<img src="{{ asset('images/oeuvre/' ~ oeuvre.image ) }}" alt="art digital et peinture de facundo varas street-art,portait paysage urbain hstoire" class="img80" style="height:10rem;width:10rem;">
+								{% endif %}
+								{% if oeuvre.categorie %}
+							<td>{{ oeuvre.categorie.name }}</td>
+							{% else %}
+								<p>''</p>
+								{% endif %}
+							{# </td>
+							<td>
+								{% if oeuvre.matiere|length > 0 %}
+									<ul>
+										{% for matiere in oeuvre.matiere %}
+											<li>{{ matiere.nom|capitalize }}
+												{% if not loop.last %},
+												{% endif %}
+											</li>
+										{% endfor %}
+									</ul>
+								{% else %}
+									<span class="text-danger fst-italic">N.R</span>
+								{% endif %}
+							</td>
+
+							<td>
+								{{oeuvre.dimention}}
+							</td>
+							<td>
+
+
+								<a href="{{ path('app_admin_oeuvre_show', {'id': oeuvre.id}) }}">voir</a>
+								{# {{ include('admin_oeuvre/_delete_form.html.twig') }} #}
+							</td>
+						</tr> 
+								<a href="{{ path('app_admin_edit', {'id': oeuvre.id}) }}">modif</a> 
+					{% else %}
+						<tr>
+							<td colspan="5">no records found</td>
+						</tr>
+					{% endfor %}
+{% endblock %}

@@ -1,0 +1,122 @@
+{% extends "base.html.twig" %}
+
+
+{% block h4 %}Modification
+	{{ oeuvre.name|capitalize }}
+{% endblock %}
+
+{% block body %}
+
+
+	<a class="btn btn-dark my-3" href="{{ path('app_admin_oeuvres') }}">Retour</a>
+
+
+	{# {% include "_flashes.html.twig" %} #}
+	<div class="Edit">
+		<div class="col-md-6 mx-auto" id="edit2">
+			{{ form_start(formEdit) }}
+
+			<div class="row">
+
+				<div class="col-md-6">
+					{{ form_row(formEdit.name) }}
+				</div>
+
+				{# <div class="col-md-6">
+					{{ form_row(formEdit.stock) }}
+				</div>
+
+				<div class="col-md-6">
+					{{ form_row(formEdit.prix) }}
+				</div> #}
+
+
+			</div>
+				<div class="col-md-6">
+					{{ form_row(formEdit.categorie) }}
+				</div>
+
+			{# <div class="row">
+
+				<div class="col-md-6">
+					{{ form_row(formEdit.description) }}
+				</div>
+
+				<div class="col-md-6">
+					{{ form_row(formEdit.dimention) }}
+				</div>
+				<div>
+
+					<div class="form-group">
+						{{ form_label(formEdit.matiere) }}
+						{{ form_widget(formEdit.matiere) }}
+					</div> #}
+
+
+				</div>
+
+
+			</div>
+
+		</div>
+
+
+		<div class="imageEdit">
+			{{ form_row(formEdit.imageUpdate) }}
+			<div id="zone" class="text-center" style="display:flex; flex-direction:column ;">
+
+				{% if oeuvre.image %}
+					<img src="{{ asset('images/oeuvre/' ~ oeuvre.image) }}" alt="" class="img300">
+					{# <a href="{{ path('oeuvre_image_supprimer', {'id' : oeuvre.id }) }}" onclick="return confirm('Etes-vous sûr de vouloir supprimer cette image ?');"> #}
+					     <i class="text-danger" data-feather="trash-2">sup</i>
+					</a>
+
+					        <a href="#" id="deleteImageLink" onclick="deleteImage(); return false;">Supprimer l'image</a>
+
+
+				{% endif %}
+			</div>
+		</div>
+	</div>
+	<div class="col-md-6 mx-auto hh">
+		<input type="submit" value="Modifier" class="btn btn-info col-12 mt-3">
+	</div>
+	{{ form_end(formEdit) }}
+
+{% endblock %}
+
+
+{% block javascripts %}
+
+
+	<script>
+
+	  function deleteImage() {
+        if (confirm("Êtes-vous sûr de vouloir supprimer cette image ?")) {
+            // Supprimez l'image actuelle de l'affichage
+            $("#currentImage").remove();
+
+            // Réinitialisez le champ de téléchargement de fichier pour supprimer l'image lors de la soumission
+            $("input[name='{{ formEdit.imageUpdate.vars.full_name }}']").val(null);
+        }
+    }
+
+	 
+
+		function loadFile(event) {
+let zone = document.getElementById('zone');
+
+console.log("test");
+
+$("#zone").html("");
+let image = document.createElement("img");
+image.setAttribute("src", URL.createObjectURL(event.target.files[0]));
+image.setAttribute("class", "img300");
+
+zone.innerHTML = "";
+
+zone.appendChild(image); 
+
+}
+	</script>
+{% endblock %}
