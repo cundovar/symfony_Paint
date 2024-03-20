@@ -19,8 +19,7 @@ class UserAuthenticator extends AbstractLoginFormAuthenticator
 {
     use TargetPathTrait;
 
-   
-    public const ERROR_ROUTE = 'app_admin_oeuvres';
+    public const LOGIN_ROUTE = 'app_login';
 
     private UrlGeneratorInterface $urlGenerator;
 
@@ -57,6 +56,6 @@ class UserAuthenticator extends AbstractLoginFormAuthenticator
 
     protected function getLoginUrl(Request $request): string
     {
-        return $this->urlGenerator->generate(self::ERROR_ROUTE);
+        return $this->urlGenerator->generate(self::LOGIN_ROUTE);
     }
 }

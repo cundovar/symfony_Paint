@@ -1,0 +1,50 @@
+<nav>
+
+         <h1>
+
+         navbar
+         </h1>
+
+{% if app.user %}
+         <div class="bdd">
+
+     
+            <div class="nameUser colorRed"> 
+               {% if is_granted('ROLE_ADMIN') %}
+                   BackOffice
+                {% endif %}
+              <a href="# "> {{app.user.name}} profil </a>
+            </div>
+
+            <div class="panierDeconnect">
+            
+           
+             <div class="deconnection">
+                  <a href="{{ path('app_logout') }}">déconnexion</a>
+             </div> 
+             
+         </div>
+            
+           {% else %}
+             
+           <div class="connection">
+            
+
+             <div class="connectInscript">
+
+                 <div class="connection1">  
+                     <a href="{{ path('app_login') }}">connexion</a> 
+                 </div>
+                   /
+                 <div class="connection2">
+                    <a href="{{path('app_register')}} ">inscription</a> 
+                </div>
+               
+              </div>
+
+          </div>
+       </div>     
+           
+         {% endif %}
+
+</nav>
