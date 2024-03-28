@@ -6,7 +6,22 @@
 {% for oeuvre in oeuvres %}
 						<tr>
 							<td>{{ oeuvre.id }}</td>
+							{% if oeuvre.theme %}
+							<td>{{ oeuvre.theme.name }}</td>
+							{% else %}
+								<td>theme à ajouter</td>
+							
+							{% endif %}
+							
 							<td>{{ oeuvre.name }}</td>
+							{% if oeuvre.description %}
+							<td>{{ oeuvre.description }}</td>
+							{% else %}
+								
+							<td>description à écrire</td>
+
+							{% endif %}
+							
 							{# <td>{{ oeuvre.prix }}</td> #}
 							<td>
 								{% if oeuvre.image %}
@@ -18,6 +33,7 @@
 							{% else %}
 								<p>''</p>
 								{% endif %}
+
 							{# </td>
 							<td>
 								{% if oeuvre.matiere|length > 0 %}

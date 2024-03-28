@@ -4,9 +4,11 @@ namespace App\Form;
 
 use App\Entity\Categorie;
 use App\Entity\Oeuvre;
+use App\Entity\Theme;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -32,7 +34,30 @@ class OeuvreType extends AbstractType
                     "id" => "titreBlock"
                 ],
             ] )
+            ->add('description', TextareaType::class, [
+                "help" => "Description facultative",
+                "required" => false,
+                "attr" => [
+                    "rows" => 8,
+                    "class" => "border border-info bg-light",
+                    "style" => "margin:1rem"
+                ],
+                "label_attr" => [
+                    "class" => "text-danger"
+                ]
+            ])
            
+            ->add('theme', EntityType::class, [
+                "class" => Theme::class,
+                "choice_label" => "name",
+                "placeholder" => "Sélectionner un theme",
+                "required" => false,
+                "label" => "theme",
+             
+                //  "multiple" => true,
+                //  "expanded" => true, // radio/checkbox
+
+            ])
             ->add('categorie', EntityType::class, [
                 "class" => Categorie::class,
                 "choice_label" => "name",
