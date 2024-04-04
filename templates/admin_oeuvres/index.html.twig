@@ -59,7 +59,7 @@
 								<a href="{{ path('app_admin_oeuvre_show', {'id': oeuvre.id}) }}">voir</a>
 								{# {{ include('admin_oeuvre/_delete_form.html.twig') }} #}
 							</td>
-						</tr> 
+						</tr>     {{ include('admin_oeuvres/_delete_form.html.twig') }}
 								<a href="{{ path('app_admin_edit', {'id': oeuvre.id}) }}">modif</a> 
 					{% else %}
 						<tr>

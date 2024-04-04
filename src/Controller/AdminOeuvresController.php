@@ -111,4 +111,32 @@ class AdminOeuvresController extends AbstractController
         ]);
 
     }
+
+    
+/**
+     * @Route("/{id}", name="app_admin_oeuvre_delete")
+     */
+    public function delete(Request $request, Oeuvre $oeuvre, OeuvreRepository $oeuvresRepository, EntityManagerInterface $entityManager): Response
+    {
+        if ($this->isCsrfTokenValid('delete' . $oeuvre->getId(), $request->request->get('_token'))) {
+            $entityManager->getConnection()->beginTransaction();
+            try {
+              
+
+                // Supprimer l'oeuvre elle-même
+                $oeuvresRepository->remove($oeuvre, true);
+
+                // Supprimer l'image associée si elle existe
+                if ($oeuvre->getImage() && file_exists($this->getParameter('imageOeuvre') . "/" . $oeuvre->getImage())) {
+                    unlink($this->getParameter('imageOeuvre') . "/" . $oeuvre->getImage());
+                }
+
+                $entityManager->getConnection()->commit();
+            } catch (\Exception $e) {
+                $entityManager->getConnection()->rollBack();
+                throw $e;
+            }
+        }
+        return $this->redirectToRoute('app_admin_oeuvres', [], Response::HTTP_SEE_OTHER);
+    }
 }

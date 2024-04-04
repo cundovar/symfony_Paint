@@ -4,6 +4,7 @@ namespace App\Form;
 
 use App\Entity\Categorie;
 use App\Entity\Oeuvre;
+use App\Entity\Size;
 use App\Entity\Theme;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
@@ -53,6 +54,17 @@ class OeuvreType extends AbstractType
                 "placeholder" => "Sélectionner un theme",
                 "required" => false,
                 "label" => "theme",
+             
+                //  "multiple" => true,
+                //  "expanded" => true, // radio/checkbox
+
+            ])
+            ->add('size', EntityType::class, [
+                "class" => Size::class,
+                "choice_label" => "name",
+                "placeholder" => "Sélectionner le size",
+                "required" => false,
+                "label" => "size",
              
                 //  "multiple" => true,
                 //  "expanded" => true, // radio/checkbox
