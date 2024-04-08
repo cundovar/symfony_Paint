@@ -1,16 +1,45 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello AdminCategorieController!{% endblock %}
+{% block title %}Hello AdminCategorieController!
+{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
 
-<div class="example-wrapper">
-   
+	<style>
+		.example-wrapper {
+			margin: 1em auto;
+			max-width: 800px;
+			width: 95%;
+			font: 18px / 1.5 sans-serif;
+		}
+		.example-wrapper code {
+			background: #F5F5F5;
+			padding: 2px 6px;
+		}
+		.nameCat {
+			display: flex;
+		}
+	</style>
 
- hjkk
-</div>
+	<div class="example-wrapper">
+		<h2>
+			categorie</h2>
+		{% for categorie in categorie%}
+			<div class="nameCat">
+
+				<div class="nameCat">
+					<h3>{{categorie.id}}  - </h3>
+					<h3>  {{categorie.name}}  -</h3>
+             
+
+
+				</div>
+				<div></div>
+			</div>
+		{% endfor %}
+
+        <p><a href={{path('app_admin_categorie_new')}} >nouvelle categorie</a></p>
+
+
+	</div>
 {% endblock %}

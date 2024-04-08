@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New PageAccueil{% endblock %}
+
+{% block body %}
+    <h1>Create new Pageueil</h1>
+{{form_start(form_accueil)}}
+{{form_row(form_accueil.texte)}}
+	{{ form_row(form_accueil.img1) }}
+{{form_end(form_accueil)}}
+   
+
+    <a href="{{ path('app_accueil_index') }}">back to list</a>
+
+
+{% block javascripts %}
+
+	{{ encore_entry_script_tags('script') }}
+
+	<script>
+
+
+		let zone = document.getElementById('zone')
+function loadFile(event) {
+console.log("test");
+
+$("#zone").html("");
+let image = document.createElement("img");
+image.setAttribute("src", URL.createObjectURL(event.target.files[0]));
+image.setAttribute("class", "img300");
+
+zone.append(image);
+
+
+}
+	</script>
+
+{% endblock %}
+
+
+{% endblock %}

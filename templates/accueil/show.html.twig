@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}PageAccueil{% endblock %}
+
+{% block body %}
+    <h1>PageAccueil</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ page_accueil.id }}</td>
+            </tr>
+            <tr>
+                <th>Texte</th>
+                <td>{{ page_accueil.texte }}</td>
+            </tr>
+            <tr>
+                <th>Img1</th>
+                <td>{{ page_accueil.img1 }}</td>
+            </tr>
+            <tr>
+                <th>Img2</th>
+                <td>{{ page_accueil.img2 }}</td>
+            </tr>
+            <tr>
+                <th>Img3</th>
+                <td>{{ page_accueil.img3 }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_accueil_index') }}">back to list</a>
+
+    <a href="{{ path('app_accueil_edit', {'id': page_accueil.id}) }}">edit</a>
+
+    {{ include('accueil/_delete_form.html.twig') }}
+{% endblock %}

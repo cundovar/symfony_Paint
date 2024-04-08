@@ -1,9 +1,37 @@
+
+<style>
+
+.nav_ul{
+display: flex;
+
+
+
+}
+
+.nav_ul li{
+  margin: 2rem;
+  cursor: pointer;
+}
+
+</style>
+
+
 <nav>
 
          <h1>
 
-         navbar
+         backoffice
          </h1>
+
+         <div>
+         <ul class="nav_ul">
+
+         <li><a href={{path('app_theme_index')}}>theme</a></li>
+         <li><a href={{path('app_admin_categorie')}}>categorie</a></li>
+      
+         
+         </ul>
+         </div>
 
 {% if app.user %}
          <div class="bdd">
