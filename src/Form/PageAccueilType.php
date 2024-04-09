@@ -5,6 +5,7 @@ namespace App\Form;
 use App\Entity\PageAccueil;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
+use Symfony\Component\Form\Extension\Core\Type\HiddenType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -14,6 +15,8 @@ class PageAccueilType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
+
+        
         $builder
             ->add('texte',TextareaType::class,[
                 "label" => "Texte page accueil",
@@ -31,9 +34,31 @@ class PageAccueilType extends AbstractType
                     "id" => "titreBlock"
                 ],
             ] ) 
-            ->add('img1')
-            ->add('img2')
-            ->add('img3');
+            ->add('img1', FileType::class, [
+                'label' => 'Image 1',
+                'required' => false,
+                'mapped' => false, // Pas de mapping avec l'entité, à gérer manuellement
+            ])
+            ->add('img2', FileType::class, [
+                'label' => 'Image 2',
+                'required' => false,
+                'mapped' => false, // Pas de mapping avec l'entité, à gérer manuellement
+            ])
+            ->add('img3', FileType::class, [
+                'label' => 'Image 3',
+                'required' => false,
+                'mapped' => false, // Pas de mapping avec l'entité, à gérer manuellement
+            ])
+            ->add('img4', FileType::class, [
+                'label' => 'Image 4',
+                'required' => false,
+                'mapped' => false, // Pas de mapping avec l'entité, à gérer manuellement
+            ])
+            ->add('img5', FileType::class, [
+                'label' => 'Image 5',
+                'required' => false,
+                'mapped' => false, // Pas de mapping avec l'entité, à gérer manuellement
+            ]);
             if ($options['ajouter']) {
                 $builder->add('image', FileType::class, [
                     "required" => false,
@@ -55,6 +80,17 @@ class PageAccueilType extends AbstractType
                 ]);
             }
         ;
+
+        if ($options['images']) {
+            foreach ($options['images'] as $fieldName => $imageName) {
+                $builder->add($fieldName . '_existing', FileType::class, [
+                    'data' => $imageName,
+                    'mapped' => false,
+                ]);
+            }}
+
+
+
     }
 
     public function configureOptions(OptionsResolver $resolver): void
@@ -63,6 +99,7 @@ class PageAccueilType extends AbstractType
             'data_class' => PageAccueil::class,
             'ajouter' => false,
             'modifier' => false,
+            'images' => [],
 
         ]);
     }

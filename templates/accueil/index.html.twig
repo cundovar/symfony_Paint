@@ -6,6 +6,9 @@
     <h1>PageAccueil index</h1>
 
     <table class="table">
+   
+        
+   
         <thead>
             <tr>
                 <th>Id</th>
@@ -13,6 +16,8 @@
                 <th>Img1</th>
                 <th>Img2</th>
                 <th>Img3</th>
+                <th>Img4</th>
+                <th>Img5</th>
                 <th>actions</th>
             </tr>
         </thead>
@@ -21,12 +26,15 @@
             <tr>
                 <td>{{ page_accueil.id }}</td>
                 <td>{{ page_accueil.texte }}</td>
-                <td>{{ page_accueil.img1 }}</td>
+                <td> {{ page_accueil.img1 }}</td>
                 <td>{{ page_accueil.img2 }}</td>
                 <td>{{ page_accueil.img3 }}</td>
+                <td>{{ page_accueil.img4 }}</td>
+                <td>{{ page_accueil.img5 }}</td>
                 <td>
-                    <a href="{{ path('app_accueil_show', {'id': page_accueil.id}) }}">show</a>
+                    {# <a href="{{ path('app_accueil_show', {'id': page_accueil.id}) }}">show</a> #}
                     <a href="{{ path('app_accueil_edit', {'id': page_accueil.id}) }}">edit</a>
+                     {# {{ include('accueil/_delete_form.html.twig') }} #}
                 </td>
             </tr>
         {% else %}
@@ -37,5 +45,5 @@
         </tbody>
     </table>
 
-    <a href="{{ path('app_accueil_new') }}">Create new</a>
+    {# <a href="{{ path('app_accueil_new') }}">Create new</a> #}
 {% endblock %}
