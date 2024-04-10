@@ -93,17 +93,9 @@ class AccueilController extends AbstractController
      */
     public function edit(Request $request, PageAccueil $pageAccueil, PageAccueilRepository $pageAccueilRepository,EntityManagerInterface $manager ): Response
     {
-        $imagesAc = [
-            'img1' => $pageAccueil->getImg1(),
-            'img2' => $pageAccueil->getImg2(),
-            'img3' => $pageAccueil->getImg3(),
-        ];
-
-        // Créer le formulaire en préremplissant les champs avec les noms des images existantes
-        $form = $this->createForm(PageAccueilType::class, $pageAccueil, [
-            'modifier' => true,
-            'images' => $imagesAc, // Passer les noms des images existantes au formulaire
-        ]);
+        $form = $this->createForm(PageAccueilType::class, $pageAccueil,[
+            'modifier'=>true
+        ] );
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
