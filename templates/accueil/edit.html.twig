@@ -5,9 +5,14 @@
 {% block body %}
     <h1>Edit PageAccueil</h1>
 
-    {{ include('accueil/_form.html.twig', {'button_label': 'Update'}) }}
+    <div class="container">
 
-    <a href="{{ path('app_accueil_index') }}">back to list</a>
+    {{ include('accueil/_form.html.twig') }}
 
-    {{ include('accueil/_delete_form.html.twig') }}
+    <a href="{{ path('app_accueil_index') }}" class="btn btn-warning">retour</a>
+
+    {# {{ include('accueil/_delete_form.html.twig') }} #}
+    
+    
+    </div>
 {% endblock %}

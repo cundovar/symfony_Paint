@@ -1,78 +1,96 @@
-
 <style>
 
-.nav_ul{
-display: flex;
+	.nav_ul {
+		display: flex;
 
 
+	}
 
-}
 
-.nav_ul li{
-  margin: 2rem;
-  cursor: pointer;
-}
-
+	.nav_ul li {
+		margin: 2rem;
+		cursor: pointer;
+	}
 </style>
 
+<h1>
 
-<nav>
+	backoffice
+</h1>
 
-         <h1>
+<nav class="navv navbar navbar-expand-lg bg-body-tertiary">
 
-         backoffice
-         </h1>
 
-         <div>
-         <ul class="nav_ul">
+	<div class="container-fluid">
+		<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="navbarSupportedContent">
 
-         <li><a href={{path('app_theme_index')}}>theme</a></li>
-         <li><a href={{path('app_admin_categorie')}}>categorie</a></li>
-      
-         
-         </ul>
-         </div>
+			<ul class="navbar-nav me-auto mb-2 mb-lg-0">
 
-{% if app.user %}
-         <div class="bdd">
+				<li class="nav-item">
+					<a class="nav-link " href={{path('app_admin_oeuvres')}}>oeuvre</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link " href={{path('app_theme_index')}}>theme</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link " href={{path('app_admin_categorie')}}>categorie</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link " href={{path('app_accueil_index')}}>page_accueil</a>
+				</li>
 
-     
-            <div class="nameUser colorRed"> 
-               {% if is_granted('ROLE_ADMIN') %}
-                   BackOffice
-                {% endif %}
-              <a href="# "> {{app.user.name}} profil </a>
-            </div>
 
-            <div class="panierDeconnect">
-            
-           
-             <div class="deconnection">
-                  <a href="{{ path('app_logout') }}">déconnexion</a>
-             </div> 
-             
-         </div>
-            
-           {% else %}
-             
-           <div class="connection">
-            
+			</ul>
 
-             <div class="connectInscript">
+		</div>
+	</div>
 
-                 <div class="connection1">  
-                     <a href="{{ path('app_login') }}">connexion</a> 
-                 </div>
-                   /
-                 <div class="connection2">
-                    <a href="{{path('app_register')}} ">inscription</a> 
-                </div>
-               
-              </div>
+	{% if app.user %}
+		<div class="bdd">
 
-          </div>
-       </div>     
-           
-         {% endif %}
+<div class="row">
+			<div class="nameUser colorRed">
+				{% if is_granted('ROLE_ADMIN') %}
+					BackOffice de
+					{{app.user.name}}
+				{% endif %}
+
+			</div>
+
+			<div class="panierDeconnect">
+
+
+				<div class="deconnection">
+					<a href="{{ path('app_logout') }}" class="btn btn-warning">déconnexion</a>
+				</div>
+
+			</div>
+
+</div>
+
+		{% else %}
+
+			<div class="connection">
+
+
+				<div class="connectInscript">
+
+					<div class="connection1">
+						<a href="{{ path('app_login') }}">connexion</a>
+					</div>
+					/
+					<div class="connection2">
+						<a href="{{path('app_register')}} ">inscription</a>
+					</div>
+
+				</div>
+
+			</div>
+		</div>
+
+	{% endif %}
 
 </nav>

@@ -1,49 +1,71 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}PageAccueil index{% endblock %}
+{% block title %}PageAccueil index
+{% endblock %}
 
 {% block body %}
-    <h1>PageAccueil index</h1>
+	<style>
+		.td_img {
+			width: 13rem;
+		}
+	</style>
+	<h1>PageAccueil index</h1>
+<div class="container">
 
-    <table class="table">
-   
-        
-   
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Texte</th>
-                <th>Img1</th>
-                <th>Img2</th>
-                <th>Img3</th>
-                <th>Img4</th>
-                <th>Img5</th>
-                <th>actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for page_accueil in page_accueils %}
-            <tr>
-                <td>{{ page_accueil.id }}</td>
-                <td>{{ page_accueil.texte }}</td>
-                <td> <img  src={{ asset('images/Accueil/' ~ page_accueil.img1  )}}/> </td>
-                <td>{{ page_accueil.img2 }}</td>
-                <td>{{ page_accueil.img3 }}</td>
-                <td>{{ page_accueil.img4 }}</td>
-                <td>{{ page_accueil.img5 }}</td>
-                <td>
-                    {# <a href="{{ path('app_accueil_show', {'id': page_accueil.id}) }}">show</a> #}
-                    <a href="{{ path('app_accueil_edit', {'id': page_accueil.id}) }}">edit</a>
-                     {# {{ include('accueil/_delete_form.html.twig') }} #}
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="6">no records found</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
 
-    {# <a href="{{ path('app_accueil_new') }}">Create new</a> #}
+
+	<table class="table">
+
+
+		<thead>
+			<tr>
+				<th scope="col-2">Id</th>
+				<th  scope="col-6">Texte</th>
+				<th scope="col">Img1</th>
+				<th scope="col">Img2</th>
+				<th scope="col">Img3</th>
+				<th scope="col">Img4</th>
+				<th scope="col">Img5</th>
+				<th scope="col">actions</th>
+			</tr>
+		</thead>
+		<tbody>
+			{% for page_accueil in page_accueils %}
+				<tr>
+					<td>{{ page_accueil.id }}</td>
+					<td colspan="">{{ page_accueil.texte }}</td>
+               
+                 
+					<td>
+						<img class="td_img" src={{ asset('images/Accueil/' ~ page_accueil.img1 )}}/>
+					</td>
+					<td>
+						<img class="td_img" src={{ asset('images/Accueil/' ~ page_accueil.img2 )}}/>
+					</td>
+					<td>
+						<img class="td_img" src={{ asset('images/Accueil/' ~ page_accueil.img3 )}}/>
+					</td>
+					<td>
+						<img class="td_img" src={{ asset('images/Accueil/' ~ page_accueil.img4 )}}/>
+					</td>
+					<td>
+						<img class="td_img" src={{ asset('images/Accueil/' ~ page_accueil.img5 )}}/>
+					</td>
+
+					<td>
+						{# <a href="{{ path('app_accueil_show', {'id': page_accueil.id}) }}">show</a> #}
+						<a href="{{ path('app_accueil_edit', {'id': page_accueil.id}) }}" class="btn btn-warning" >editer</a>
+						{# {{ include('accueil/_delete_form.html.twig') }} #}
+					</td>
+				</tr>
+			{% else %}
+				<tr>
+					<td colspan="6">no records found</td>
+				</tr>
+			{% endfor %}
+		</tbody>
+	</table>
+</div>
+
+	{# <a href="{{ path('app_accueil_new') }}">Create new</a> #}
 {% endblock %}

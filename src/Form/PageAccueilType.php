@@ -24,13 +24,14 @@ class PageAccueilType extends AbstractType
                
                 "attr" => [
                     "placeholder" => "Saisir un texte",
-                    "class" => "border border-danger bg-light",
+                    "class" => "form-control  ",
 
                 ],
                 "label_attr" => [
-                    "class" => "text-primary"
+                    "class" => "text-success form-label"
                 ],
                 "row_attr" => [
+                   
                     "id" => "titreBlock"
                 ],
             ] ) 
@@ -38,26 +39,70 @@ class PageAccueilType extends AbstractType
                 'label' => 'Image 1',
                 'required' => false,
                 'mapped' => false, // Pas de mapping avec l'entité, à gérer manuellement
+                "label_attr" => [
+                    "class" => " text-success form-label",
+                   " for" => 'formFile'
+                ],
+                'attr' => [
+                    'class' => 'form-control', // Ajouter la classe au champ de fichier
+                    'id' => 'formFile' // Ajouter l'ID au champ de fichier
+                ]
             ])
             ->add('img2', FileType::class, [
                 'label' => 'Image 2',
                 'required' => false,
                 'mapped' => false, // Pas de mapping avec l'entité, à gérer manuellement
+                "label_attr" => [
+                    "class" => " text-success form-label",
+                   " for" => 'formFile'
+                ],
+                'attr' => [
+                    'class' => 'form-control', // Ajouter la classe au champ de fichier
+                    'id' => 'formFile' // Ajouter l'ID au champ de fichier
+                
+                ],
             ])
             ->add('img3', FileType::class, [
                 'label' => 'Image 3',
                 'required' => false,
                 'mapped' => false, // Pas de mapping avec l'entité, à gérer manuellement
+                "label_attr" => [
+                    "class" => " text-success form-label",
+                   " for" => 'formFile'
+                ],
+                'attr' => [
+                    'class' => 'form-control', // Ajouter la classe au champ de fichier
+                    'id' => 'formFile' // Ajouter l'ID au champ de fichier
+                
+                ],
             ])
             ->add('img4', FileType::class, [
                 'label' => 'Image 4',
                 'required' => false,
                 'mapped' => false, // Pas de mapping avec l'entité, à gérer manuellement
+                "label_attr" => [
+                    "class" => " text-success form-label",
+                   " for" => 'formFile'
+                ],
+                'attr' => [
+                    'class' => 'form-control', // Ajouter la classe au champ de fichier
+                    'id' => 'formFile' // Ajouter l'ID au champ de fichier
+                
+                ],
             ])
             ->add('img5', FileType::class, [
                 'label' => 'Image 5',
                 'required' => false,
                 'mapped' => false, // Pas de mapping avec l'entité, à gérer manuellement
+                "label_attr" => [
+                    "class" => " text-success form-label",
+                   " for" => 'formFile'
+                ],
+                'attr' => [
+                    'class' => 'form-control', // Ajouter la classe au champ de fichier
+                    'id' => 'formFile' // Ajouter l'ID au champ de fichier
+                
+                ],
             ]);
             if ($options['ajouter']) {
                 $builder->add('image', FileType::class, [

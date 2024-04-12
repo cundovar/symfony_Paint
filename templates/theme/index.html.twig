@@ -4,11 +4,14 @@
 
 {% block body %}
     <h1>Theme index</h1>
+<div class="container">
+
 
     <table class="table">
         <thead>
             <tr>
                 <th>Id</th>
+                <th>Theme</th>
                 <th>actions</th>
             </tr>
         </thead>
@@ -18,8 +21,18 @@
                 <td>{{ theme.id }}</td>
                 <td>{{ theme.name }}</td>
                 <td>
-                    <a href="{{ path('app_theme_show', {'id': theme.id}) }}">show</a>
-                    <a href="{{ path('app_theme_edit', {'id': theme.id}) }}">edit</a>
+                <div class="row">
+                    {# <a href="{{ path('app_theme_show', {'id': theme.id}) }}">show</a> #}
+                    <div class="col">
+                    <a class="btn btn-warning" href="{{ path('app_theme_edit', {'id': theme.id}) }}">editer</a>
+
+                    </div>
+                    <div class="col">
+                    {{ include('theme/_delete_form.html.twig') }}
+                    
+                    </div>
+                
+                </div>
                 </td>
             </tr>
         {% else %}
@@ -30,5 +43,7 @@
         </tbody>
     </table>
 
-    <a href="{{ path('app_theme_new') }}">Create new</a>
+    <a href="{{ path('app_theme_new') }}" class="btn btn-warning">nouveau theme</a>
+</div>
+
 {% endblock %}

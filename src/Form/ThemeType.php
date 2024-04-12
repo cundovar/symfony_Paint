@@ -14,7 +14,15 @@ class ThemeType extends AbstractType
     {
         $builder
         ->add('name', TextType::class, [
-            "required" => false
+            "required" => false,
+            "label_attr" => [
+                "class" => " text-success form-label",
+               
+            ],
+            'attr' => [
+                'class' => 'form-control', // Ajouter la classe au champ de fichier
+             
+            ]
         ])
     ;
     }
