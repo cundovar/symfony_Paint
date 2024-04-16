@@ -25,11 +25,11 @@ class OeuvreType extends AbstractType
                
                 "attr" => [
                     "placeholder" => "Saisir un titre",
-                    "class" => "border border-danger bg-light",
+                    "class" => " form-control border  bg-light",
 
                 ],
                 "label_attr" => [
-                    "class" => "text-primary"
+                    "class" => "text-primary form-label"
                 ],
                 "row_attr" => [
                     "id" => "titreBlock"
@@ -40,7 +40,7 @@ class OeuvreType extends AbstractType
                 "required" => false,
                 "attr" => [
                     "rows" => 8,
-                    "class" => "border border-info bg-light",
+                    "class" => "border border-info form-control bg-light",
                     "style" => "margin:1rem"
                 ],
                 "label_attr" => [
@@ -54,6 +54,9 @@ class OeuvreType extends AbstractType
                 "placeholder" => "Sélectionner un theme",
                 "required" => false,
                 "label" => "theme",
+                "attr"=>[
+                    "class"=>"form-control"
+                ]
              
                 //  "multiple" => true,
                 //  "expanded" => true, // radio/checkbox
@@ -66,7 +69,9 @@ class OeuvreType extends AbstractType
                 "placeholder" => "Sélectionner une catégorie",
                 "required" => false,
                 "label" => "Catégorie*",
-             
+                "attr"=>[
+                    "class"=>"form-control"
+                ]
                 //  "multiple" => true,
                 //  "expanded" => true, // radio/checkbox
 

@@ -3,7 +3,7 @@
 {% block title %}Theme index{% endblock %}
 
 {% block body %}
-    <h1>Theme index</h1>
+    <h1>Theme </h1>
 <div class="container">
 
 
@@ -19,7 +19,7 @@
         {% for theme in theme %}
             <tr>
                 <td>{{ theme.id }}</td>
-                <td>{{ theme.name }}</td>
+                <td class="table-warning "  >{{ theme.name }}</td>
                 <td>
                 <div class="row">
                     {# <a href="{{ path('app_theme_show', {'id': theme.id}) }}">show</a> #}

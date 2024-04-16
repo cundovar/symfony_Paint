@@ -15,6 +15,8 @@
 	<div class="Edit">
 		<div class="col-md-6 mx-auto" id="edit2">
 			{{ form_start(formEdit) }}
+<div class="row ">
+<div class="col-6">
 
 			<div class="row">
 
@@ -43,26 +45,9 @@
 					{{ form_row(formEdit.description) }}
 				</div>
 
-			{# <div class="row">
+</div>
+<div class="col-6">
 
-
-				<div class="col-md-6">
-					{{ form_row(formEdit.dimention) }}
-				</div>
-				<div>
-
-					<div class="form-group">
-						{{ form_label(formEdit.matiere) }}
-						{{ form_widget(formEdit.matiere) }}
-					</div> #}
-
-
-				</div>
-
-
-			</div>
-
-		</div>
 
 
 		<div class="imageEdit">
@@ -70,20 +55,39 @@
 			<div id="zone" class="text-center" style="display:flex; flex-direction:column ;">
 
 				{% if oeuvre.image %}
-					<img src="{{ asset('images/oeuvre/' ~ oeuvre.image) }}" alt="" class="img300">
-					{# <a href="{{ path('oeuvre_image_supprimer', {'id' : oeuvre.id }) }}" onclick="return confirm('Etes-vous sûr de vouloir supprimer cette image ?');"> #}
-					     <i class="text-danger" data-feather="trash-2">sup</i>
+					<img src="{{ asset('images/oeuvre/' ~ oeuvre.image) }}" alt="imageId"class="rounded mx-auto d-block">
+				
+					    
 					</a>
 
-					        <a href="#" id="deleteImageLink" onclick="deleteImage(); return false;">Supprimer l'image</a>
+					        <a href="#" id="deleteImageLink" class="btn" onclick="deleteImage(); return false;"><i class="fa fa-trash" ></i></a>
 
 
 				{% endif %}
 			</div>
 		</div>
+
+
+</div>
+
+
+
+
+</div>
+
+	
+
+				</div>
+
+
+			</div>
+
+		</div>
+
+
 	</div>
-	<div class="col-md-6 mx-auto hh">
-		<input type="submit" value="Modifier" class="btn btn-info col-12 mt-3">
+	<div class="col-md-6 col-3 mx-auto hh">
+		<input type="submit" value="Modifier" class="btn btn-info col-3 mt-3">
 	</div>
 	{{ form_end(formEdit) }}
 
