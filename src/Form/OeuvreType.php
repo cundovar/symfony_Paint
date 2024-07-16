@@ -20,31 +20,33 @@ class OeuvreType extends AbstractType
     {
         $builder
             ->add('name',TextType::class,[
-                "label" => "Titre du produit*",
+                "label" => "Titre de l'oeuvre",
                 "required" => false,
                
                 "attr" => [
                     "placeholder" => "Saisir un titre",
-                    "class" => " form-control border  bg-light",
+                    "class" => " form-control ",
+                    "style"=>"margin-bottom:0.5rem"
 
                 ],
                 "label_attr" => [
                     "class" => "text-primary form-label"
                 ],
                 "row_attr" => [
+                   
                     "id" => "titreBlock"
                 ],
             ] )
             ->add('description', TextareaType::class, [
-                "help" => "Description facultative",
+                // "help" => "Description facultative",
                 "required" => false,
                 "attr" => [
-                    "rows" => 8,
+                    "rows" => 12,
                     "class" => "border border-info form-control bg-light",
-                    "style" => "margin:1rem"
+                    "style" => ""
                 ],
                 "label_attr" => [
-                    "class" => "text-danger"
+                    "class" => "text-primary"
                 ]
             ])
            
@@ -55,8 +57,12 @@ class OeuvreType extends AbstractType
                 "required" => false,
                 "label" => "theme",
                 "attr"=>[
-                    "class"=>"form-control"
-                ]
+                    "class"=>"form-control",
+                    "style"=>"margin-bottom:0.5rem"
+                ],
+                "label_attr" => [
+                    "class" => "text-primary form-label",
+                ],
              
                 //  "multiple" => true,
                 //  "expanded" => true, // radio/checkbox
@@ -68,10 +74,14 @@ class OeuvreType extends AbstractType
                 "choice_label" => "name",
                 "placeholder" => "Sélectionner une catégorie",
                 "required" => false,
-                "label" => "Catégorie*",
+                "label" => "Catégorie",
                 "attr"=>[
-                    "class"=>"form-control"
-                ]
+                    "class"=>"form-control",
+                    "style"=>"margin-bottom:0.5rem"
+                ],
+                "label_attr" => [
+                    "class" => "text-primary form-label"
+                ],
                 //  "multiple" => true,
                 //  "expanded" => true, // radio/checkbox
 
@@ -91,9 +101,10 @@ class OeuvreType extends AbstractType
                 $builder->add('imageUpdate', FileType::class, [
                     "required" => false,
                     "mapped" => false, // qui n'est pas dans l'entity
-                
+                    
                     "attr" => [
-                        'onchange' => "loadFile(event)"
+                        'onchange' => "loadFile(event)",
+                        "class"=>"form-control"
                     ]
                 ]);
             }

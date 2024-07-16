@@ -7,6 +7,8 @@
 
 {% block body %}
 
+<div class="container-fluid">
+
 
 	<a class="btn btn-dark my-3" href="{{ path('app_admin_oeuvres') }}">Retour</a>
 
@@ -15,17 +17,20 @@
 	<div class="Edit">
 		<div class="col-md-6 mx-auto" id="edit2">
 			{{ form_start(formEdit) }}
-<div class="row ">
-<div class="col-6">
+<div class="row col-12 ">
+<div class="col-6 d-flex justify-content-center align-items-center">
 
-			<div class="row">
+<div class="col-12">
+
+
+
 
 				<div class="col-md-6">
 					{{ form_row(formEdit.name) }}
 				</div>
 				<div class="col-md-6">
 					{# {{ form_row(formEdit.themes) }} #}
-				</div>
+				
 
 				{# 
 
@@ -38,12 +43,24 @@
 				<div class="col-md-6">
 					{{ form_row(formEdit.categorie) }}
 				</div>
+				<div class="col-md-6">
+					{{ form_row(formEdit.theme) }}
+				</div>
 				{# <div class="col-md-6">
 					{{ form_row(formEdit.size) }}
 				</div> #}
 				<div class="col-md-6">
 					{{ form_row(formEdit.description) }}
 				</div>
+				<div class="  ">
+		<input type="submit" value="Modifier" class="btn btn-info col-3 mt-3">
+	</div>
+
+
+</div>
+
+	
+
 
 </div>
 <div class="col-6">
@@ -55,9 +72,9 @@
 			<div id="zone" class="text-center" style="display:flex; flex-direction:column ;">
 
 				{% if oeuvre.image %}
-					<img src="{{ asset('images/oeuvre/' ~ oeuvre.image) }}" alt="imageId"class="rounded mx-auto d-block">
+					<img src="{{ asset('images/oeuvre/' ~ oeuvre.image) }}" alt="imageId"class="rounded mx-auto img-fluid img-thumbnail d-block"/>
 				
-					    
+				
 					</a>
 
 					        <a href="#" id="deleteImageLink" class="btn" onclick="deleteImage(); return false;"><i class="fa fa-trash" ></i></a>
@@ -86,10 +103,11 @@
 
 
 	</div>
-	<div class="col-md-6 col-3 mx-auto hh">
+	{# <div class="col-md-6 col-3 mx-auto hh">
 		<input type="submit" value="Modifier" class="btn btn-info col-3 mt-3">
-	</div>
+	</div> #}
 	{{ form_end(formEdit) }}
+</div>
 
 {% endblock %}
 

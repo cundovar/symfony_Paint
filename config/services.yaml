@@ -10,7 +10,8 @@ parameters:
 services:
 
     # default configuration for services in *this* file
-    
+
+    # Ajoutez les arguments du constructeur ici si nécessaire
     _defaults:
         autowire: true      # Automatically injects dependencies in your services.
         autoconfigure: true # Automatically registers your services as commands, event subscribers, etc.

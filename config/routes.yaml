@@ -1,3 +1,14 @@
 #index:
 #    path: /
 #    controller: App\Controller\DefaultController::index
+# Exemple de route pour créer un like
+api_like_create:
+    path: /api/likes
+    controller: App\Controller\Api\LikeController::createLike
+    methods: [POST]
+
+# Exemple de route pour récupérer les détails d'une œuvre
+api_oeuvre_details:
+    path: /api/oeuvres/{oeuvreId}
+    controller: App\Controller\Api\OeuvreController::getOeuvreDetails
+    methods: [GET]
